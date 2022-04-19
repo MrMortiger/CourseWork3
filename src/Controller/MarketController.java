@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -15,6 +16,7 @@ import javafx.scene.layout.VBox;
 import main.Main;
 import main.MyListener;
 import model.Product;
+import main.Query;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +26,16 @@ import java.util.ResourceBundle;
 
 public class MarketController implements Initializable {
     @FXML
-    private VBox chosenFruitCard;
+    private Button addProductToBucket_button;
+
+    @FXML
+    private VBox chosenProductCard;
+
+    @FXML
+    private GridPane grid;
+
+    @FXML
+    private ImageView productImg;
 
     @FXML
     private Label productNameLabel;
@@ -33,13 +44,7 @@ public class MarketController implements Initializable {
     private Label productPriceLabel;
 
     @FXML
-    private ImageView productImg;
-
-    @FXML
     private ScrollPane scroll;
-
-    @FXML
-    private GridPane grid;
 
     private List<Product> products = new ArrayList<>();
     private Image image;
@@ -127,7 +132,7 @@ public class MarketController implements Initializable {
         productPriceLabel.setText(Main.CURRENCY + product.getPrice());
         image = new Image(getClass().getResourceAsStream(product.getImgSrc()));
         productImg.setImage(image);
-        chosenFruitCard.setStyle("-fx-background-color: #" + product.getColor() + ";\n" +
+        chosenProductCard.setStyle("-fx-background-color: #" + product.getColor() + ";\n" +
                 "    -fx-background-radius: 30;");
     }
 
@@ -175,7 +180,17 @@ public class MarketController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+        addProductToBucket_button.setOnAction(actionEvent ->
+        {
+            Query query = new Query();
+            try{
+            query.getDbConnection();
+            }
+            catch (Exception e){
+                System.out.println(e);
+                System.out.println("NotGood");
+            }
+        });
     }
 
 }

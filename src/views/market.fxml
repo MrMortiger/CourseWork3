@@ -59,7 +59,7 @@
                      </styleClass>
                   </HBox>
                   <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
-                  <VBox fx:id="chosenFruitCard" alignment="CENTER" prefHeight="472.0" prefWidth="335.0" stylesheets="@../values/style.css">
+                  <VBox fx:id="chosenProductCard" alignment="CENTER" prefHeight="472.0" prefWidth="335.0" stylesheets="@../values/style.css">
                      <VBox.margin>
                         <Insets left="50.0" right="50.0" />
                      </VBox.margin>
@@ -116,7 +116,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Button fx:id="addProduct" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="add-btn" stylesheets="@../values/style.css" text="ДОДАТИ В КОШИК" textFill="#828282">
+                        <Button fx:id="addProductToBucket_button" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="add-btn" stylesheets="@../values/style.css" text="ДОДАТИ В КОШИК" textFill="#828282">
                            <VBox.margin>
                               <Insets bottom="20.0" top="30.0" />
                            </VBox.margin>

@@ -12,7 +12,7 @@ public class DatabaseHandler extends Configs{
 
         Class.forName("org.postgresql.Driver");
         dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);
-        System.out.println("Ok");
+        System.out.println("Connected to DB: " + dbName);
         return dbConnection;
     }
 
